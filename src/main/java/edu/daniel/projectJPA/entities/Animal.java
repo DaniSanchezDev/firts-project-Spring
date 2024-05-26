@@ -60,6 +60,12 @@ public class Animal {
         this.edad = edad;
     }
 
+    @Override
+    public String toString() {
+        return "Animal [id=" + id + ", nombre=" + nombre + ", especie=" + especie + ", peso=" + peso + ", edad=" + edad
+                + "]";
+    }
+
     
     
 }
