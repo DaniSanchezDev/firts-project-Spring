@@ -1,12 +1,22 @@
 package edu.daniel.projectJPA.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 // Mapear spring con la BBDD
 @Table(name = "animales")
 public class Animal {
+
+    // creamos el decorador para el id
+    @Id
+    //esto es para decir que es auto incremental el id el decorador. Le pasamos la estrategia que es auto
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    
     private Long id;
     private String nombre;
     private String especie;
