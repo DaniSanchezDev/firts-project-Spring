@@ -1,8 +1,11 @@
 package edu.daniel.projectJPA.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
+// Mapear spring con la BBDD
+@Table(name = "animales")
 public class Animal {
     private Long id;
     private String nombre;
