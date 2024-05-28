@@ -14,7 +14,7 @@ public class Animal {
     // creamos el decorador para el id
     @Id
     //esto es para decir que es auto incremental el id el decorador. Le pasamos la estrategia que es auto
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     
     private Long id;
