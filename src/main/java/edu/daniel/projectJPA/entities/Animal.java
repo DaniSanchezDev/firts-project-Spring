@@ -1,6 +1,7 @@
 package edu.daniel.projectJPA.entities;
 
 import edu.daniel.projectJPA.Enumerate.Especie;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -20,9 +21,12 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
        
     private Integer id;
+    //Cambia el nombre de la columna de la BBDD
+    @Column(name = "nombre")
     private String nombre;
     //Convierte el enumerado en un string y despues en la bbdd lo convierte a varchar
     @Enumerated(EnumType.STRING)
+    @Column(name = "especie", columnDefinition = "ENUM('CANINO', 'FELINO', 'SIMIO', 'PEZ', 'REPTIL')")
     private Especie especie;
     private Double peso;
     private Integer edad;
