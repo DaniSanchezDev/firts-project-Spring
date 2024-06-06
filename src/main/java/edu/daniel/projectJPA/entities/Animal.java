@@ -1,6 +1,9 @@
 package edu.daniel.projectJPA.entities;
 
+import edu.daniel.projectJPA.Enumerate.Especie;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,17 +18,18 @@ public class Animal {
     @Id
     //esto es para decir que es auto incremental el id el decorador. Le pasamos la estrategia que es auto
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    
-    private Long id;
+       
+    private Integer id;
     private String nombre;
-    private String especie;
+    //Convierte el enumerado en un string y despues en la bbdd lo convierte a varchar
+    @Enumerated(EnumType.STRING)
+    private Especie especie;
     private Double peso;
     private Integer edad;
 
     public Animal() {}
 
-    public Animal(Long id, String nombre, String especie, Double peso, Integer edad) {
+    public Animal(Integer id, String nombre, Especie especie, Double peso, Integer edad) {
         this.id = id;
         this.nombre = nombre;
         this.especie = especie;
@@ -33,11 +37,11 @@ public class Animal {
         this.edad = edad;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -49,11 +53,11 @@ public class Animal {
         this.nombre = nombre;
     }
 
-    public String getEspecie() {
+    public Especie getEspecie() {
         return especie;
     }
 
-    public void setEspecie(String especie) {
+    public void setEspecie(Especie especie) {
         this.especie = especie;
     }
 
@@ -79,10 +83,15 @@ public class Animal {
                 + "]";
     }
 
+    public Animal(String nombre, Especie especie, Double peso, Integer edad) {
+        this.nombre = nombre;
+        this.especie = especie;
+        this.peso = peso;
+        this.edad = edad;
+    }
+
+
+    
     
     
 }
-
-
-
-
