@@ -21,8 +21,8 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
        
     private Integer id;
-    //Cambia el nombre de la columna de la BBDD
-    @Column(name = "nombre")
+    //Este decorador cambia el nombre de la columna de la BBDD, si no esta creada la columna, la crea
+    @Column(name = "nombre", length = 255, nullable = false, unique = true)
     private String nombre;
     //Convierte el enumerado en un string y despues en la bbdd lo convierte a varchar
     @Enumerated(EnumType.STRING)
